@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<section class="layout">
+    <div class="header">
+        <img src="{{ url_for('static', filename='images/logo2.png') }}" style="grid-column: 1 / 2" />
+        <h1 style="grid-column: 2 / 3;">
+        welcome to crabmustard, LLC
+        <br>
+        home of Pedro, the super recruiter
+    </h1>
+    </div>
+
+    <div class="main">
+        <h1>Applicant List</h1>
+        {% if applicants|length < 1 %}
+            <h4>There are no applicants. Pedro sad</h4>
+            <h4>Maybe if you refresh, someone has applied.</h4>
+        {% else %}
+            <table class="app-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>College</th>
+                    <th>Grade</th>
+                    <th>Job</th>
+                    <th>View Details</th>
+                    <th>Actions</th>
+                </tr>
+                {% for applicant in applicants %}
+                    <tr>
+                        <td style="text-align: center">{{ applicant.id }}</td>
+                        <td>{{ applicant.name }}</td>
+                        <td>{{ applicant.citystate }}</td>
+                        <td>{{ applicant.email }}</td>
+                        <td>{{ applicant.college }}</td>
+                        <td style="text-align: center">{{ applicant.grade }}</td>
+                        <td>{{ applicant.job }}</td>
+                        <td style="text-align: center"><a href="/details/{{applicant.id}} ">Details</a></td>
+                        <td style="text-align: center"><a href="/delete/{{applicant.id}}">Reject</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        {% endif %}
+        <br>
+        <br>
+        <form action="/" method="POST"  style="text-align: center">
+            <input type="submit" value="Pull Applicants">
+        </form>
+    </div>
+    <div class="footer">
+        <h3>Memo from Pedro:</h3>
+        <p>I bought too many rawhide chews, we cant afford more people.</p>
+        <p>Just reject them all for now.</p>
+        <button><a href="/update/">More information:</a></button>
+    </div>
+</section>
+
+
+
+{% endblock %}
+

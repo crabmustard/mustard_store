@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+<section class="layout">
+    <div class="header">
+        <h1>
+        welcome to crabmustard, LLC
+        <br>
+        home of Pedro, the super recruiter
+    </h1>
+    </div> 
+    <div class="main">
+        <div style="margin-left: 1rem; text-align: left;">
+            <h2>{{ to_view.name }}</h2>
+            <h3>{{ to_view.citystate }} {{ to_view.email }}</h3>
+            <br>
+            <h3>School: {{ to_view.college }} Grade: {{ to_view.grade }}</h3>
+            <br>
+            <h2>Job applied for: {{ to_view.job }}</h2>
+            <h2>Cover Letter:</h2>
+            {% for line in cover_letter %}
+            <h3> {{ line }}</h3>
+            
+            {% endfor %}
+            <button>
+                <a href="/delete/{{ to_view.id }}">Reject</a>
+            </button>
+    </div>
+    </div>
+    <div class="footer">
+        <h3>Memo from Pedro:</h3>
+        <p>I bought too many rawhide chews, we cant afford more people.</p>
+        <p>Just reject them all for now.</p>
+    </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+body {
+    background-color: burlywood;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.company-banner {
+    margin: 0, 3rem;
+    border: .3rem solid black;
+    background-color: orange;
+}
+
+table {
+    justify-content: center;
+    background-color: rgb(162, 175, 187);
+    border-collapse: collapse;
+    border: 2px solid darkslategray;
+    width: 95%;
+}
+
+td {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+tr:nth-of-type(even) {
+    background-color: coral;
+}
+
+tr:nth-of-type(odd) {
+    background-color: darkorange;
+}
+
+button {
+    font-size: x-large;
+    height: 50px;
+    width: 100px;
+}
